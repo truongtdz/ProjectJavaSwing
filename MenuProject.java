@@ -193,6 +193,14 @@ public class MenuProject{
             }     
         });
 
+        //Xu Ly Khi Click Delete by MaSV
+        jBT42.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceEnterMaSVDelete(list, MenuProject.this);
+            }     
+        });
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setVisible(true);
