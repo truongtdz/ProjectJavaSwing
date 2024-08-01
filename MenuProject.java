@@ -71,11 +71,15 @@ public class MenuProject{
         jBT22.setBounds(430, 155, 150, 25);
         jBT22.setVisible(false);
 
+        JButton jBT23 = new JButton("Sort by MaSV"); frame.add(jBT23);
+        jBT23.setBounds(430, 195, 150, 25);
+        jBT23.setVisible(false);
+
         JButton jBT31 = new JButton("Search by Name"); frame.add(jBT31);
         jBT31.setBounds(520, 115, 150, 25);
         jBT31.setVisible(false);
 
-        JButton jBT32 = new JButton("Search by Ma SV"); frame.add(jBT32);
+        JButton jBT32 = new JButton("Search by MaSV"); frame.add(jBT32);
         jBT32.setBounds(520, 155, 150, 25);
         jBT32.setVisible(false);
 
@@ -102,6 +106,7 @@ public class MenuProject{
                 trangThai1 = !trangThai1;
                 jBT21.setVisible(trangThai1);
                 jBT22.setVisible(trangThai1);
+                jBT23.setVisible(trangThai1);
             }
             
         });
@@ -163,6 +168,19 @@ public class MenuProject{
                         if(s1.getGpa() < s2.getGpa()){
                             return -1;
                         } else return 1;
+                    }
+                });
+                updateStudentList(list);
+            }     
+        });
+
+        // XuLyKhiClick Sort by MaSV
+        jBT23.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(list, new Comparator<Student>() {
+                    public int compare(Student s1, Student s2){
+                        return Integer.parseInt(s1.getMaSV()) - Integer.parseInt(s2.getMaSV());
                     }
                 });
                 updateStudentList(list);
