@@ -73,9 +73,9 @@ public class MenuProject{
         jBT31.setBounds(520, 115, 150, 25);
         jBT31.setVisible(false);
 
-        // JButton jBT32 = new JButton("Search by Gpa"); frame.add(jBT32);
-        // jBT32.setBounds(520, 155, 150, 25);
-        // jBT32.setVisible(false);
+        JButton jBT32 = new JButton("Search by Gpa"); frame.add(jBT32);
+        jBT32.setBounds(520, 155, 150, 25);
+        jBT32.setVisible(false);
 
         JButton jBT41 = new JButton("Delete by Name"); frame.add(jBT41);
         jBT41.setBounds(610, 115, 150, 25);
@@ -110,7 +110,7 @@ public class MenuProject{
             public void actionPerformed(ActionEvent e) {
                 trangThai = !trangThai;
                 jBT31.setVisible(trangThai);
-                //jBT32.setVisible(trangThai);
+                jBT32.setVisible(trangThai);
             }
         });
 
