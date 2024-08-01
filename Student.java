@@ -44,4 +44,5 @@ public class Student {
         }
         Class = str.trim().toString();
     }
+    
 }

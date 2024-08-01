@@ -15,7 +15,9 @@ public class MenuProject{
     private static ArrayList<Student> list = new ArrayList<>();
     private JTable table;
     private DefaultTableModel tableModel;
-    private boolean trangThai = false;
+    private boolean trangThai1 = false;
+    private boolean trangThai2 = false;
+    private boolean trangThai3 = false;
 
     public static void main(String[] args){
         new MenuProject().InterfaceProject();
@@ -73,7 +75,7 @@ public class MenuProject{
         jBT31.setBounds(520, 115, 150, 25);
         jBT31.setVisible(false);
 
-        JButton jBT32 = new JButton("Search by Gpa"); frame.add(jBT32);
+        JButton jBT32 = new JButton("Search by Ma SV"); frame.add(jBT32);
         jBT32.setBounds(520, 155, 150, 25);
         jBT32.setVisible(false);
 
@@ -97,9 +99,9 @@ public class MenuProject{
         jBT2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                trangThai = !trangThai;
-                jBT21.setVisible(trangThai);
-                jBT22.setVisible(trangThai);
+                trangThai1 = !trangThai1;
+                jBT21.setVisible(trangThai1);
+                jBT22.setVisible(trangThai1);
             }
             
         });
@@ -108,9 +110,9 @@ public class MenuProject{
         jBT3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                trangThai = !trangThai;
-                jBT31.setVisible(trangThai);
-                jBT32.setVisible(trangThai);
+                trangThai2 = !trangThai2;
+                jBT31.setVisible(trangThai2);
+                jBT32.setVisible(trangThai2);
             }
         });
 
@@ -118,9 +120,9 @@ public class MenuProject{
         jBT4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                trangThai = !trangThai;
-                jBT41.setVisible(trangThai);
-                jBT42.setVisible(trangThai);
+                trangThai3 = !trangThai3;
+                jBT41.setVisible(trangThai3);
+                jBT42.setVisible(trangThai3);
             }
             
         });
@@ -174,6 +176,13 @@ public class MenuProject{
                 new InterfaceEnterNameSearch(list);
             }
             
+        });
+
+        jBT32.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceEnterMaSVSearch(list);
+            }
         });
 
         //Xu Ly Khi Click Delete by Name

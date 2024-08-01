@@ -87,9 +87,11 @@ public class InterfaceAddStudent{
                     list.add(s);
                     menu.updateStudentList(list);
                     frame.dispose();
-                } catch (Exception NumberFormatException){
+                } catch (NumberFormatException ex){
                     new InterfaceInputError();
-                }
+                } catch (StringIndexOutOfBoundsException ex){
+                    new InterfaceInputMissing();
+                } 
                 
             }
         });
@@ -152,7 +154,7 @@ public class InterfaceAddStudent{
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
             }
-            
         });
+        
     }
 }
