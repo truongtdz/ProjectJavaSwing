@@ -47,6 +47,5 @@ public class InterfaceEnterNameDelete{
                 menu.updateStudentList(list);
             }  
         });
-
     }
 }

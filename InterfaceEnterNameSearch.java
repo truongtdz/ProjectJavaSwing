@@ -65,6 +65,5 @@ public class InterfaceEnterNameSearch {
                 jBT1.setVisible(false);
             }  
         });
-
     }
 }
