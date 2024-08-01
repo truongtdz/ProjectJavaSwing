@@ -72,17 +72,25 @@ public class InterfaceAddStudent{
         jBT4.setBounds(165, 380, 60, 20);
         jBT4.setVisible(false);
 
+        JButton jBT5 = new JButton("EXIT"); frame.add(jBT5);
+        jBT5.setBounds(145, 410, 100, 20);
+
 
         //Xu Ly Khi Click Add Student
         jBT1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Student s = new Student(jTF1.getText(), jTF2.getText(), jTF3.getText(), Double.parseDouble(jTF4.getText()));
-                s.ChuanHoaTen();
-                s.ChuanHoaLop();
-                list.add(s);
-                menu.updateStudentList(list);
-                frame.dispose();
+                try {
+                    Student s = new Student(jTF1.getText(), jTF2.getText(), jTF3.getText(), Double.parseDouble(jTF4.getText()));
+                    s.ChuanHoaTen();
+                    s.ChuanHoaLop();
+                    list.add(s);
+                    menu.updateStudentList(list);
+                    frame.dispose();
+                } catch (Exception NumberFormatException){
+                    new InterfaceInputError();
+                }
+                
             }
         });
 
@@ -136,6 +144,15 @@ public class InterfaceAddStudent{
                 menu.updateStudentList(list);
                 frame.dispose();
             }
+        });
+
+        //Xu Ly Khi Click EXIT
+        jBT5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+            
         });
     }
 }
