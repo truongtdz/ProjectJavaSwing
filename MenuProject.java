@@ -228,7 +228,8 @@ public class MenuProject{
     public void updateStudentList(ArrayList<Student> list) {
         tableModel.setRowCount(0);
         for (Student s : list) {
-            tableModel.addRow(new Object[]{s.getMaSV(), s.getName(), s.getClassName(), s.getGpa()});
+            Double gpa = Double.parseDouble(String.format("%.1f", s.getGpa()));
+            tableModel.addRow(new Object[]{s.getMaSV(), s.getName(), s.getClassName(), gpa});
         }
     }
 }
