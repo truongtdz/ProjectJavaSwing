@@ -9,7 +9,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
 public class InterfaceEnterNameSearch {
     public InterfaceEnterNameSearch(ArrayList<Student> list){
         JFrame frame = new JFrame();   
