@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-
 public class InterfaceEnterMaSVDelete{
     public InterfaceEnterMaSVDelete(ArrayList<Student> list, MenuProject menu){
         JFrame frame = new JFrame();   
