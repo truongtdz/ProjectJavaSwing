@@ -23,7 +23,6 @@ public class Student {
     public Double getGpa() {
         return Gpa;
     }
-
     public void ChuanHoaTen(){
         String[] arr = Name.trim().split("\\s+");
         String str = "";
