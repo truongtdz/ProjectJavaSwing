@@ -20,7 +20,6 @@ public class InterfaceAddStudent{
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
 
-
         JLabel jLB1 = new JLabel("Enter Information Student"); 
         frame.add(jLB1);
         jLB1.setFont( new Font("Arial", Font.PLAIN, 20));
