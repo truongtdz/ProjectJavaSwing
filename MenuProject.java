@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 public class MenuProject{
     private static ArrayList<Student> list = new ArrayList<>();
     private JTable table;
