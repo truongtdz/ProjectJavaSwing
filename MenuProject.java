@@ -17,7 +17,7 @@ public class MenuProject{
     private boolean trangThai1 = false;
     private boolean trangThai2 = false;
     private boolean trangThai3 = false;
-
+    
     public static void main(String[] args){
         new MenuProject().InterfaceProject();
     }
