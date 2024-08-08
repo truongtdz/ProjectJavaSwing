@@ -17,7 +17,7 @@ public class MenuProject{
     private boolean trangThai1 = false;
     private boolean trangThai2 = false;
     private boolean trangThai3 = false;
-    
+
     public static void main(String[] args){
         new MenuProject().InterfaceProject();
     }
@@ -26,7 +26,7 @@ public class MenuProject{
         JFrame frame = new JFrame();
         frame.setSize(800, 500);
         frame.setTitle("Project Student Management");
-
+        
         JLabel jLB = new JLabel("This is project of Tran Duc Truong");
         frame.add(jLB);
         jLB.setHorizontalAlignment(0);
