@@ -1,18 +1,19 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class InterfaceAddStudent{
-    public InterfaceAddStudent(ArrayList<Student> list, MenuProject menu){
+    //public static void main(String[] args)
+    public InterfaceAddStudent()
+    {
         JFrame frame = new JFrame();
         frame.setSize(400, 500);
         frame.setTitle("Enter Information Student");
@@ -20,140 +21,93 @@ public class InterfaceAddStudent{
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
 
-        JLabel jLB1 = new JLabel("Enter Information Student"); 
-        frame.add(jLB1);
-        jLB1.setFont( new Font("Arial", Font.PLAIN, 20));
-        jLB1.setHorizontalAlignment(0);
-        jLB1.setBounds(0, 0, 400, 20);
+        JLabel jLB0 = new JLabel("Enter Information Student"); 
+        frame.add(jLB0);
+        jLB0.setFont( new Font("Arial", Font.PLAIN, 20));
+        jLB0.setHorizontalAlignment(0);
+        jLB0.setBounds(0, 0, 400, 20);
        
-        JLabel jLB2 = new JLabel("MaSV : "); frame.add(jLB2);
-        jLB2.setBounds(70, 50, 70, 20);
+        JLabel jLB1 = new JLabel("Name : "); frame.add(jLB1);
+        jLB1.setBounds(70, 50, 70, 20);
         
-        JLabel jLB3 = new JLabel("Name : "); frame.add(jLB3);
-        jLB3.setBounds(70, 80, 70, 20);
+        JLabel jLB2 = new JLabel("Age : "); frame.add(jLB2);
+        jLB2.setBounds(70, 90, 70, 20);
         
-        JLabel jLB4 = new JLabel("Class : "); frame.add(jLB4);
-        jLB4.setBounds(70, 110, 70, 20);
+        JLabel jLB3 = new JLabel("Street : "); frame.add(jLB3);
+        jLB3.setBounds(70, 130, 70, 20);
         
-        JLabel jLB5 = new JLabel("Gpa : "); frame.add(jLB5);
-        jLB5.setBounds(70, 140, 70, 20);
+        JLabel jLB4 = new JLabel("District : "); frame.add(jLB4);
+        jLB4.setBounds(70, 170, 70, 20);
+
+        JLabel jLB5 = new JLabel("Major : "); frame.add(jLB5);
+        jLB5.setBounds(70, 210, 70, 20);
+        
+        JLabel jLB6 = new JLabel("Phone : "); frame.add(jLB6);
+        jLB6.setBounds(70, 250, 70, 20);
+        
+        JLabel jLB7 = new JLabel("Gpa : "); frame.add(jLB7);
+        jLB7.setBounds(70, 290, 70, 20);
         
         JTextField jTF1 = new JTextField(); frame.add(jTF1);
         jTF1.setBounds(120, 50, 170, 20);
         
         JTextField jTF2 = new JTextField(); frame.add(jTF2);
-        jTF2.setBounds(120, 80, 170, 20);
+        jTF2.setBounds(120, 90, 170, 20);
         
         JTextField jTF3 = new JTextField(); frame.add(jTF3);
-        jTF3.setBounds(120, 110, 170, 20);
+        jTF3.setBounds(120, 130, 170, 20);
         
         JTextField jTF4 = new JTextField(); frame.add(jTF4);
-        jTF4.setBounds(120, 140, 170, 20);
+        jTF4.setBounds(120, 170, 170, 20);
 
         JTextField jTF5 = new JTextField(); frame.add(jTF5);
-        jTF5.setBounds(215, 350, 60, 20);
-        jTF5.setVisible(false);
+        jTF5.setBounds(120, 210, 170, 20);
 
-        JLabel jLB6 = new JLabel("Enter Location : "); frame.add(jLB6);
-        jLB6.setBounds(115, 350, 100, 20);
-        jLB6.setVisible(false);
+        JTextField jTF6 = new JTextField(); frame.add(jTF6);
+        jTF6.setBounds(120, 250, 170, 20);
 
-        JButton jBT1 = new JButton("Add Student"); frame.add(jBT1);
-        jBT1.setBounds(115, 200, 160, 30);
+        JTextField jTF7 = new JTextField(); frame.add(jTF7);
+        jTF7.setBounds(120, 290, 170, 20);
+ 
+        JButton jBT1 = new JButton("ADD"); frame.add(jBT1);
+        jBT1.setBounds(150, 350, 100, 20);
 
-        JButton jBT2 = new JButton("Add Student By File"); frame.add(jBT2);
-        jBT2.setBounds(115, 250, 160, 30);
+        JButton jBT2 = new JButton("EXIT"); frame.add(jBT2);
+        jBT2.setBounds(160, 410, 80, 20);
 
-        JButton jBT3 = new JButton("Insert Student"); frame.add(jBT3);
-        jBT3.setBounds(115, 300, 160, 30);
-
-        JButton jBT4 = new JButton("ADD"); frame.add(jBT4);
-        jBT4.setBounds(165, 380, 60, 20);
-        jBT4.setVisible(false);
-
-        JButton jBT5 = new JButton("EXIT"); frame.add(jBT5);
-        jBT5.setBounds(145, 410, 100, 20);
-
-
-        //Xu Ly Khi Click Add Student
+        // When Click ADD
         jBT1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Student s = new Student(jTF1.getText(), jTF2.getText(), jTF3.getText(), Double.parseDouble(jTF4.getText()));
-                    s.ChuanHoaTen();
-                    s.ChuanHoaLop();
-                    list.add(s);
-                    menu.updateStudentList(list);
-                    frame.dispose();
-                } catch (NumberFormatException ex){
-                    new InterfaceInputError();
-                } catch (StringIndexOutOfBoundsException ex){
-                    new InterfaceInputMissing();
-                } 
-                
+                StringBuilder sql = new StringBuilder("INSERT INTO student (name, age, street, district, major, phone, gpa)" );
+                sql.append(" VALUES");
+                String s = " ('" + jTF1.getText() + "', " + Integer.parseInt(jTF2.getText())
+                           + ",'"  + jTF3.getText() + "','" + jTF4.getText() + "','" 
+                           + jTF5.getText() + "','" + jTF6.getText() + "', "
+                           + Double.parseDouble(jTF7.getText()) + ");";
+                sql.append(s);
+                try(Connection con = ConnectionDataBase.getConnection();
+                    Statement stmt = con.createStatement();
+                    ){
+                        stmt.executeUpdate(sql.toString());
+                        con.close();
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                }
+                InterfaceMenu.UpdateList();
+                frame.dispose();
             }
         });
 
-        //Xu Ly Khi Click Add Student By File
+        // When Click EXIT
         jBT2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser jFile = new JFileChooser();
-                int returnFile = jFile.showOpenDialog(null);
-                if(returnFile == JFileChooser.APPROVE_OPTION){
-                    File selection = jFile.getSelectedFile();
-                    try(BufferedReader br = new BufferedReader(new FileReader(selection))){
-                        String line;
-                        while((line = br.readLine()) != null){
-                            String[] inFor = line.split(",");
-                            if(inFor.length == 4){
-                                Student s = new Student(inFor[0].trim(), inFor[1].trim(), inFor[2].trim(), Double.parseDouble(inFor[3]));
-                                s.ChuanHoaLop();
-                                s.ChuanHoaTen();
-                                list.add(s);
-                            }
-                        }
-                        menu.updateStudentList(list);
-                    } catch (Exception ex){
-                        ex.printStackTrace();
-                    }
-                    frame.dispose();
-                }
-            }
-        });
-
-        //Xu Ly Khi Click Insert Student
-        jBT3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jTF5.setVisible(true);
-                jLB6.setVisible(true);
-                jBT4.setVisible(true);
-            }
-        });
-        
-        //Xu Ly Khi Click ADD Sau Khi Click Insert Student
-        jBT4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Student s = new Student(jTF1.getText(), jTF2.getText(), jTF3.getText(), Double.parseDouble(jTF4.getText()));
-                s.ChuanHoaLop();
-                s.ChuanHoaTen();
-                int x = Integer.parseInt(jTF5.getText());
-                list.add(x - 1, s);
-                menu.updateStudentList(list);
                 frame.dispose();
             }
-        });
-
-        //Xu Ly Khi Click EXIT
-        jBT5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-            }
-        });
-        
+        });    
+    }
+    public void AddList(ArrayList<String> list, JTextField jTF){
+            list.add(jTF.toString());
     }
 }

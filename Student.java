@@ -1,47 +1,55 @@
 public class Student {
-    private String MaSV, Name, Class;
-    private Double Gpa;
-
-    public Student(String MaSV, String Name, String Class, Double Gpa){
-        this.MaSV = MaSV;
-        this.Name = Name;
-        this.Class = Class;
-        this.Gpa = Gpa;
+    private int id, age;
+    private double gpa;
+    private String name, street, district, major, phone;
+    public int getId() {
+        return id;
     }
-    public String getMaSV() {
-        return MaSV;
+    public void setId(int id) {
+        this.id = id;
     }
-
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public double getGpa() {
+        return gpa;
+    }
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
     public String getName() {
-        return Name;
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getStreet() {
+        return street;
+    }
+    public void setStreet(String street) {
+        this.street = street;
+    }
+    public String getDistrict() {
+        return district;
+    }
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+    public String getMajor() {
+        return major;
+    }
+    public void setMajor(String major) {
+        this.major = major;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getClassName(){
-        return Class;
-    }
-
-    public Double getGpa() {
-        return Gpa;
-    }
-    public void ChuanHoaTen(){
-        String[] arr = Name.trim().split("\\s+");
-        String str = "";
-        for(String s : arr){
-            str += Character.toUpperCase(s.charAt(0));
-            for(int i = 1; i < s.length(); i++){
-                str += Character.toLowerCase(s.charAt(i));
-            }
-            str += " ";
-        }
-        Name = str.trim().toString();
-    }
-
-    public void ChuanHoaLop(){
-        String str = "";
-        for(char x : Class.toCharArray()){
-            str += Character.toUpperCase(x);
-        }
-        Class = str.trim().toString();
-    }
     
 }
