@@ -3,8 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -81,21 +79,46 @@ public class InterfaceAddStudent{
             public void actionPerformed(ActionEvent e) {
                 StringBuilder sql = new StringBuilder("INSERT INTO student (name, age, street, district, major, phone, gpa)" );
                 sql.append(" VALUES");
-                String s = " ('" + jTF1.getText() + "', " + Integer.parseInt(jTF2.getText())
-                           + ",'"  + jTF3.getText() + "','" + jTF4.getText() + "','" 
-                           + jTF5.getText() + "','" + jTF6.getText() + "', "
-                           + Double.parseDouble(jTF7.getText()) + ");";
-                sql.append(s);
-                try(Connection con = ConnectionDataBase.getConnection();
-                    Statement stmt = con.createStatement();
-                    ){
-                        stmt.executeUpdate(sql.toString());
-                        con.close();
-                } catch(Exception ex){
-                    ex.printStackTrace();
+                boolean statusInterface = true;
+                // Kiểm tra xem người dùng có nhập thiếu thông tin không
+                if(!checkInfor(jTF1) || !checkInfor(jTF2) || !checkInfor(jTF3) ||
+                !checkInfor(jTF4) || !checkInfor(jTF5) || !checkInfor(jTF6) || !checkInfor(jTF7)){
+                    new InterfaceInputMissing(); // Nếu thiếu hiển thị màn hình yêu cầu nhập đủ
+                    statusInterface = false; 
                 }
-                InterfaceMenu.UpdateList();
-                frame.dispose();
+
+                if(statusInterface){
+                    // Kiểm tra người dùng có nhập sai age và gpa không
+                    try {
+                        String name = jTF1.getText().toString();
+                        int age = Integer.parseInt(jTF2.getText());
+                        String street = jTF3.getText();
+                        String district = jTF4.getText();
+                        String major = jTF5.getText(); 
+                        String phone = jTF6.getText();
+                        double gpa = Double.parseDouble(jTF7.getText());
+                        // Câu lệnh thêm dữ liệu cho Bảng
+                        sql.append("('" + name + "', " + age + ",'" + street + "','" + district 
+                                    + "','" + major + "','" + phone + "', " + gpa + ")");
+                    } catch (NumberFormatException ex) {
+                        new InterfaceInputError(); // Nếu nhập k đúng thì yêu cầu nhập đúng số nguyên và số thực
+                        statusInterface = false;
+                    } 
+                }
+              
+                if(statusInterface){
+                    try(Connection con = ConnectionDataBase.getConnection();
+                        Statement stmt = con.createStatement();
+                        ){
+                            stmt.executeUpdate(sql.toString());
+                            con.close();
+                        } catch(Exception ex){
+                            ex.printStackTrace();
+                        }
+                    InterfaceMenu.UpdateList();
+                    frame.dispose();
+                }
+                
             }
         });
 
@@ -105,9 +128,13 @@ public class InterfaceAddStudent{
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
             }
-        });    
+        });   
     }
-    public void AddList(ArrayList<String> list, JTextField jTF){
-            list.add(jTF.toString());
+
+    public static boolean checkInfor(JTextField jTF){
+        if(jTF.getText() == null || jTF.getText().equals("")){
+            return false;
+        }
+        return true;
     }
 }
