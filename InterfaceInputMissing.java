@@ -16,7 +16,7 @@ public class InterfaceInputMissing {
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
 
-        JLabel jLB1 = new JLabel("Enter Full Information"); frame.add(jLB1);
+        JLabel jLB1 = new JLabel("Enter Information"); frame.add(jLB1);
         jLB1.setBounds(0, 30, 280, 30);
         jLB1.setHorizontalAlignment(0);
         jLB1.setFont(new Font("Arial", Font.PLAIN, 20));

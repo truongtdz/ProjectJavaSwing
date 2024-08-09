@@ -14,7 +14,7 @@ public class InterfaceAddStudent{
     {
         JFrame frame = new JFrame();
         frame.setSize(400, 500);
-        frame.setTitle("Enter Information Student");
+        frame.setTitle("Add Student");
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
@@ -131,6 +131,7 @@ public class InterfaceAddStudent{
         });   
     }
 
+    // Hàm check user có nhập k đủ thông tin không
     public static boolean checkInfor(JTextField jTF){
         if(jTF.getText() == null || jTF.getText().equals("")){
             return false;

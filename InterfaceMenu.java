@@ -94,6 +94,14 @@ public class InterfaceMenu {
             }  
         });
 
+        // Click Update Student
+        jBT2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceUpdateStudent();
+            }  
+        });
+
         // Click Exit Menu
         jBT6.addActionListener(new ActionListener() {
             @Override
