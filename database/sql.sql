@@ -9,7 +9,6 @@ CREATE TABLE student(
     phone varchar(25) not null,
     gpa double not null
 );
-
 INSERT INTO student (name, age, street, district, major, phone, gpa)
 VALUES 
 ('Nguyễn Thị Lan', 20, '123 Đường Trần Duy Hưng', 'Quận Cầu Giấy', 'Công nghệ thông tin', '0912345678', 0.8),
