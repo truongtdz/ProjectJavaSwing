@@ -115,7 +115,7 @@ public class InterfaceAddStudent{
                         } catch(Exception ex){
                             ex.printStackTrace();
                         }
-                    InterfaceMenu.UpdateList();
+                    InterfaceMenu.UpdateList("");
                     frame.dispose();
                 }
                 

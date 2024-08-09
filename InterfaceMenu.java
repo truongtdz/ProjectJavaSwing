@@ -71,7 +71,7 @@ public class InterfaceMenu {
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane);
         scrollPane.setBounds(20, 80, 500, 300);
-        UpdateList();
+        UpdateList("");
 
         // Click Menu Selection
         jBT0.addActionListener(new ActionListener() {
@@ -102,6 +102,14 @@ public class InterfaceMenu {
             }  
         });
 
+         // Click Sort Student
+         jBT3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceSortStudent();
+            }  
+        });
+
         // Click Exit Menu
         jBT6.addActionListener(new ActionListener() {
             @Override
@@ -115,11 +123,11 @@ public class InterfaceMenu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void UpdateList(){
+    public static void UpdateList(String s){
         model.setRowCount(0);
         try (Connection conn = ConnectionDataBase.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM student")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM student" + s)) {
 
             while (rs.next()) {
                 model.addRow(new Object[]{

@@ -166,7 +166,7 @@ public class InterfaceUpdateStudent{
                 } catch(Exception ex){
                     ex.printStackTrace();
                 }
-                InterfaceMenu.UpdateList();
+                InterfaceMenu.UpdateList("");
                 frame.dispose();
             }
         }); 
