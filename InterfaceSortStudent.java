@@ -60,5 +60,6 @@ public class InterfaceSortStudent{
                 frame.dispose();
             }
         });
+        
     }
 }

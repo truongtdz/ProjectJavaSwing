@@ -60,13 +60,13 @@ public class InterfaceMenu {
 
         // Table Print Infor Student
         model.addColumn("ID");
-        model.addColumn("Tên");
-        model.addColumn("Tuổi");
+        model.addColumn("Name");
+        model.addColumn("Age");
         model.addColumn("GPA");
-        model.addColumn("Đường");
-        model.addColumn("Quận/Huyện");
-        model.addColumn("Ngành");
-        model.addColumn("SĐT");
+        model.addColumn("Street");
+        model.addColumn("District");
+        model.addColumn("Major");
+        model.addColumn("Phone");
         JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane);
@@ -102,11 +102,27 @@ public class InterfaceMenu {
             }  
         });
 
-         // Click Sort Student
-         jBT3.addActionListener(new ActionListener() {
+        // Click Sort Student
+        jBT3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new InterfaceSortStudent();
+            }  
+        });
+
+        // Click Search Student
+        jBT4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceSearchStudent();
+            }  
+        });
+
+        // Click Delete Student
+        jBT5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InterfaceDeleteStudent();
             }  
         });
 

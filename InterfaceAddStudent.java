@@ -105,7 +105,6 @@ public class InterfaceAddStudent{
                         statusInterface = false;
                     } 
                 }
-              
                 if(statusInterface){
                     try(Connection con = ConnectionDataBase.getConnection();
                         Statement stmt = con.createStatement();
